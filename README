@@ -1,0 +1,32 @@
+# badMIXTUREexample: checking a mixture decomposition from PLINK data
+
+This example runs through the process of:
+0. Getting the data
+1. Converting plink data to mixPainter (chromopainter) format
+2. Running ADMIXTURE
+3. Running mixPainter in a way that allows comparisons to the ADMIXTURE run
+4. Getting the data out of mixPainter and into the badMIXTURE R package.
+
+# Step 0: Getting the data
+
+From a linux or mac terminal, copy the example data from our repository:
+
+```
+## Get the data
+ 
+## For linux:
+alias mywget=wget
+## For mac OSX:
+if [ `uname` == "Darwin" ]; then
+   alias mywget="curl -O"
+fi
+files="Recent_admix.bim Marginalisation_admix.bim Remnants_admix.bim Remnants_admix.fam Recent_admix.fam Marginalisation_admix.fam Marginalisation_admix.bed Recent_admix.bed Remnants_admix.bed"
+for file in $files; do
+    mywget https://people.maths.bris.ac.uk/~madjl/finestructure/badmixture/$file
+done
+
+## Get the scripts to process the data
+git clone https://github.com/danjlawson/badMIXTUREexample.git
+## Note that this stage requires git. You technically don't need it; you can download the scripts manually if you would prefer.  put them in a folder called "badMIXTUREexample" under your working directory for all the paths to work correctly.
+
+```
